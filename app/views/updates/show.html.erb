@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @update.first_name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @update.user_id %>
+</p>
+
+<p>
+  <strong>Savings amount:</strong>
+  <%= @update.savings_amount %>
+</p>
+
+<p>
+  <strong>Monthly savings:</strong>
+  <%= @update.monthly_savings %>
+</p>
+
+<p>
+  <strong>Interest rate:</strong>
+  <%= @update.interest_rate %>
+</p>
+
+<%= link_to 'Edit', edit_update_path(@update) %> |
+<%= link_to 'Back', updates_path %>
