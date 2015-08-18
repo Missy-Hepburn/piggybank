@@ -15,20 +15,19 @@
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
+<div class="field">
+ <%= f.hidden_field :user_id, :value =>current_user.id %>
+</div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :savings_amount %><br>
+    <%= f.label :savings_amount, 'How much do you have in your savings account?' %><br>
     <%= f.text_field :savings_amount %>
   </div>
   <div class="field">
-    <%= f.label :monthly_savings %><br>
+    <%= f.label :monthly_savings, 'How much are you planning on saving monthly?' %><br>
     <%= f.text_field :monthly_savings %>
   </div>
   <div class="field">
-    <%= f.label :interest_rate %><br>
+    <%= f.label :interest_rate, 'What is the interest rate for your savings account?' %><br>
     <%= f.text_field :interest_rate %>
   </div>
   <div class="actions">

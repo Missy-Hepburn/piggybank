@@ -26,6 +26,7 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new(update_params)
 
+    
     respond_to do |format|
       if @update.save
         format.html { redirect_to @update, notice: 'Update was successfully created.' }

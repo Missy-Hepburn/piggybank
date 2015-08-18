@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'rails_admin'
 gem 'railties'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

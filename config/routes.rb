@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :pictures
+  get 'profiles/show'
+
   resources :updates
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   
   root 'static_pages#home'
+  
+  get '/profile/:userid' => 'profiles#show', as: 'profile'
     
 
   # The priority is based upon order of creation: first created -> highest priority.
