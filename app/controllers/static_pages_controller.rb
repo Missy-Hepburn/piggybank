@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    render :layout => false
   end
 
   def whataboutit
@@ -7,4 +8,8 @@ class StaticPagesController < ApplicationController
 
   def blog
   end
+  
+  def expenses
+  end
+  
 end

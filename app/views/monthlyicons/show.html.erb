@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @monthlyicon.user_id %>
+</p>
+
+<p>
+  <strong>Monthly expenses:</strong>
+  <%= @monthlyicon.monthly_expenses %>
+</p>
+
+<%= link_to 'Edit', edit_monthlyicon_path(@monthlyicon) %> |
+<%= link_to 'Back', monthlyicons_path %>

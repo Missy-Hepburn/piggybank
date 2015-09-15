@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
+  resources :monthlyicons
+  resources :weeklyicons
+  get 'static_pages/expenses'
+      
+  resources :budgets
   resources :pictures
+  resources :icons
   get 'profiles/show'
 
   resources :updates
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+  
+  root 'static_pages#home'
   
   get 'static_pages/home'
 
@@ -12,12 +20,21 @@ Rails.application.routes.draw do
 
   get 'static_pages/blog'
   
-  get 'static_pages/home'
+  get '/home' => 'static_pages#home'
   
-  root 'static_pages#home'
+  get '/whataboutit' => 'static_pages#whataboutit'
+  
+  get '/blog' => 'static_pages#blog'
+  
+  get '/expenses' => 'static_pages#expenses'
   
   get '/profile/:userid' => 'profiles#show', as: 'profile'
-    
+  
+  get '/budget/:userid' => 'budgets#index'
+  
+  get '/savings/:userid' => 'pictures#index' 
+  
+  get '/expenses/:userid' => 'icons#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -73,4 +90,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
 end

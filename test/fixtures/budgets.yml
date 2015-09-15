@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  savings_target: MyString
+  monthly_savings: 1.5
+  monthly_budget: 1.5
+  user_id: 1
+
+two:
+  savings_target: MyString
+  monthly_savings: 1.5
+  monthly_budget: 1.5
+  user_id: 1

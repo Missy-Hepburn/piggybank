@@ -3,26 +3,30 @@
 <html>
   
 <head>
-  <title>Piggybank</title>
+  <title>piggybank</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  
+  <%= csrf_meta_tags %> 
 </head>
   
 <body>
   
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+<!-- Sandstone theme --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/sandstone/bootstrap.min.css">
+<link rel="stylesheet" href="/navbar.css"> 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   
+ 
   <nav class="navbar navbar-default">
   <div class="container-fluid">
+    
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -31,32 +35,35 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Piggy Bank</a>
+      <a class="navbar-brand" href="/home"><img alt="Brand" width="55" height="55" src="/Myimages/Piggy bank_logo_transparentbckgrd.png"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav navbar-right">
 
  <% if user_signed_in? %>
-        <li><%= link_to 'Home', root_url %></li>
-        <li><%= link_to 'My piggy bank', profile_url(current_user) %></li>
-        <li><%= link_to 'Update balance', new_update_path %></li> 
+        <li><a href="/profile/:userid">My piggybank</a></li> 
+        <li><%= link_to 'Expenses', icons_path(current_user) %></li>
+        <!-- new update path %= link_to 'Savings', new_update_path %></li> -->
+        <li><%= link_to 'Savings', pictures_path(current_user) %></li>
+        <!-- <li>%= link_to 'Expenses', new_budget_path %></li> -->
+        <li><a href="/expenses">Expenses tracker</a></li>    
         <li><%= link_to 'Log out', destroy_user_session_path, :method=>:delete %></li>
   <%else%>
-        <li><%= link_to 'Home', root_url %></li>
         <li><%= link_to 'Log in', new_user_session_path %></li>
         <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <!-- <li><a href="/blog">Blog</a></li> -->
   <%end%>
         </ul>
       
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-  
-<div class="container">       
+    
+<div class="container">
 <%= yield %>
 </div>
-
+  
 </body>
 </html>

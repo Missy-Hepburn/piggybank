@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @weeklyicon.user_id %>
+</p>
+
+<p>
+  <strong>Weekly expenses:</strong>
+  <%= @weeklyicon.weekly_expenses %>
+</p>
+
+<%= link_to 'Edit', edit_weeklyicon_path(@weeklyicon) %> |
+<%= link_to 'Back', weeklyicons_path %>

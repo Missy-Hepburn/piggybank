@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @icon.title %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @icon.price %>
+</p>
+
+<a href="/expenses">Add more</a> / <%= link_to 'Check my expenses', icons_path(current_user) %>

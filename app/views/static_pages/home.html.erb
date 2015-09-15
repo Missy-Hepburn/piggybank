@@ -1,2 +1,128 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<html>
+  
+<head>
+  
+  <title>piggybank</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %> 
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+<!-- Sandstone theme --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/sandstone/bootstrap.min.css">
+<link rel="stylesheet" href="/navbar.css"> 
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  
+<body>
+ 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/home"><img alt="Brand" width="55" height="55" src="/Myimages/Piggy bank_logo_transparentbckgrd.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-right">
+
+ <% if user_signed_in? %>
+        <li><a href="/profile/:userid">My piggybank</a></li> 
+        <li><%= link_to 'Expenses', icons_path(current_user) %></li>
+        <!-- new update path %= link_to 'Savings', new_update_path %></li> -->
+        <li><%= link_to 'Savings', pictures_path(current_user) %></li>
+        <!-- <li>%= link_to 'Expenses', new_budget_path %></li> -->
+        <li><a href="/expenses">Expenses tracker</a></li>    
+        <li><%= link_to 'Log out', destroy_user_session_path, :method=>:delete %></li>
+  <%else%>
+        <li><%= link_to 'Log in', new_user_session_path %></li>
+        <li><%= link_to 'Sign up', new_user_registration_path %></li>
+        <!-- <li><a href="/blog">Blog</a></li> -->
+  <%end%>
+        </ul>   
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  
+</head>
+
+   
+<div style="background:white; height:600px; margin:0px" div class="jumbotron">
+  <div class="container-fluid">
+    <div calss="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6"><h1><font style="text-align: right; line-height: 350px" face="impact" color="#660066">Saving made sexy</font></h1></div>
+    <div class="col-md-4"><div style="text-align: right; line-height: 350px"><img width="400" height="430"src="/Myimages/Piggybank_sunglasses_ok.png"></div></div>
+    <div class="col-md-1"></div>
+  </div><!--row-->
+</div><!--container-fluid -->
+</div><!-- style -->  
+
+<div style="background:#520A3D; height:600px; margin:0px" class="jumbotron">
+  <div class="container-fluid">   
+  <div class="row">
+    
+  <div class="col-md-6">
+    <iframe width="560" height="315" style="margin-top:80px; margin-left:10px" src="https://www.youtube.com/embed/VZuseNTXpos" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-6" >
+      <div style="margin-top:130px"><font color="white" size="6px">We use visuals to make what you earn and what you spend tangible</font><p>   
+ <p><a class="btn btn-default" style="background-color:white" href="/users/sign_up" role="button"><font strong face="impact" color="#520A3D" size="3px">Cool! Sign me up</font></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div style="background:white; height:600px; margin:0px" class="jumbotron">
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-4">
+      <div align="center">
+      <h2><font color="#660066">NO BBS<br>(Boring Bank Statements)</font></h2>
+      </div>
+      </div>
+    <div class="col-md-4">  
+      <div align="center">
+      <h2><font color="#660066">Track your spending<br>in a fun way</font></h2>
+      </div>
+      </div>
+      <div class="col-md-4"> 
+        <div align="center">
+      <h2><font color="#660066">Set targets for yourself,<br>the sky is the limit!</font></h2><br>
+      </div>
+      </div>
+      
+ <div class="row">
+    <div class="col-md-4">
+      <div align="center">
+      <img width="430" height="380" src="/Myimages/bank statement_test.png" class="img-rounded">
+        </div> 
+        </div>
+        <div class="col-md-4">
+          <div align="center">
+       <img width="215" height="350" src="/Myimages/screenshot.png">
+         </div>
+    </div>
+        <div class="col-md-4"> 
+          <div align="center">
+       <img width="420" height="365" src="/Myimages/flight_test.png">
+          </div>
+        </div>
+      </div>
+      
+     </div>
+   </div>
+  </div>
+  
+</body>
+</html>

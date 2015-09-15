@@ -1,0 +1,50 @@
+<%= form_for(@weeklyicon) do |f| %>
+  <% if @weeklyicon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@weeklyicon.errors.count, "error") %> prohibited this weeklyicon from being saved:</h2>
+
+      <ul>
+      <% @weeklyicon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :weekly_expenses %><br>
+    <%= f.text_field :weekly_expenses %>
+  </div>
+  <div class="field">
+    <%= f.label :image, 'budget 1' %><br>
+    <%= f.file_field :image %>
+    </div>
+
+  <div class="field">
+    <%= f.label :image, 'budget 2' %><br>
+    <%= f.file_field :image %>
+    </div>
+
+  <div class="field">
+    <%= f.label :image, 'budget 3' %><br>
+    <%= f.file_field :image %>
+    </div>
+
+<div class="field">
+    <%= f.label :image, 'budget 4' %><br>
+    <%= f.file_field :image %>
+    </div>
+
+<div class="field">
+    <%= f.label :image, 'budget 5' %><br>
+    <%= f.file_field :image %>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

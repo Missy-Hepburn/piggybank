@@ -1,0 +1,26 @@
+<%= form_for(@icon) do |f| %>
+  <% if @icon.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@icon.errors.count, "error") %> prohibited this from being saved:</h2>
+
+      <ul>
+      <% @icon.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :image %>
+    </div>
+  <div class="field">
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+  <%= f.hidden_field :user_id, :value =>current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

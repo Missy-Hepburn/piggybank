@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Monthlyicons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Monthly expenses</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monthlyicons.each do |monthlyicon| %>
+      <tr>
+        <td><%= monthlyicon.user_id %></td>
+        <td><%= monthlyicon.monthly_expenses %></td>
+        <td><%= link_to 'Show', monthlyicon %></td>
+        <td><%= link_to 'Edit', edit_monthlyicon_path(monthlyicon) %></td>
+        <td><%= link_to 'Destroy', monthlyicon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monthlyicon', new_monthlyicon_path %>
