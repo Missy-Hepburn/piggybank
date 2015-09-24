@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
+ <!-- <div class="field">
+    %= f.label :first_name %><br>
+    %= f.text_field :first_name %>
+  </div> -->
 <div class="field">
  <%= f.hidden_field :user_id, :value =>current_user.id %>
 </div>
@@ -30,7 +30,8 @@
     <%= f.label :interest_rate, 'What is the interest rate for your savings account?' %><br>
     <%= f.text_field :interest_rate %>
   </div>
+<p>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit details" %>
   </div>
 <% end %>

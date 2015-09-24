@@ -1,25 +1,21 @@
 <h1>My budget</h1>
 
-<table width="400">
-  <thead>
-    <tr>
-      <th>Monthly:</th>
-      <th>Weekly:</th>
-      <th>Daily:</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
- 
-  <tbody>
-    <tr>
+    <div class="row"> 
       <% @usersbudgets.each do |budget| %>
-      <td><%= budget.monthly_budget %>£</td>
-      <td><%= budget.weekly_budget %>£</td>
-      <td><%= budget.daily_budget %>£</td>
-    </tr>
+    <div class="col-md-4">
+      <strong>Monthly:</strong><br>
+      <%= budget.monthly_budget %>£
+      </div>
+      <div class="col-md-4">
+      <strong>Weekly:</strong><br>
+      <%= budget.weekly_budget %>£
+      </div>
+      <div class="col-md-4">
+      <strong>Daily:</strong><br>
+      <%= budget.daily_budget %>£
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
 
 <br>
 <a class="btn btn-default" href="/budgets/new" role="button">Update details</a>

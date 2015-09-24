@@ -1,0 +1,52 @@
+#purple {
+    background-color:#520A3D; 
+    height: 550px; 
+    margin-top:0px;
+    margin-bottom:0px;
+}
+
+.jumbotron {
+    background-color: #FFFFFF;
+    height: 550px; 
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+#heading {
+  text-align: center; 
+  line-height: 350px;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 60px;
+  color: #660066;
+}
+
+#teaser {
+  line-height: 60px;
+  color: #FFFFFF;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+}
+ 
+.h2 {
+  color: #888888;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.videoWrapper {
+	position: left;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 90%;
+	height: 100%;
+}

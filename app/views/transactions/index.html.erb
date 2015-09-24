@@ -1,13 +1,17 @@
 <h1>My expenses</h1>
 <br>
+
 <h2>Today:</h2>
 <br>
-<div class="row"> 
-    <% @usersicons.each do |icon| %>
-  <div class="col-xs-6 col-md-3">
-      <%= image_tag(icon.image.url(:medium)) %><br>
-      </div>
-  <% end %>
+
+<div class="row">
+  <% @userstransactions.each do |transaction| %>
+  <div class="col-md-3">
+    <div align="center">
+    <%= transaction.price %>£<br>
+    <%= image_tag(transaction.icon.image.url(:medium)) %><br></div>
+  </div>
+    <% end %>
   </div>
 
   <h2>This week:</h2>

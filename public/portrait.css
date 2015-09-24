@@ -1,0 +1,30 @@
+/* Portrait (smartphone) */
+
+@media all and (orientation:portrait){
+  
+  .jumbotron {
+  height: 450px;
+  }
+  
+  #heading {
+  text-align: center; 
+  line-height: 70px;
+  font-size: 35px;
+  font-family: Impact, Charcoal, sans-serif;
+  }
+  
+  #teaser {
+  text-align: center; 
+  line-height: 30px;
+  font-size: 25px;
+  }
+  
+   #purple{
+    min-height: 450px;
+  }
+  
+  .h2 {
+    font-size: 30px;    
+  }
+}
+

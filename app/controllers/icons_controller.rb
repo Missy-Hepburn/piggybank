@@ -5,12 +5,14 @@ class IconsController < ApplicationController
   # GET /icons.json
  def index 
     @usersicons=Icon.where(:user_id =>current_user.id)
+    @userstransactions=Transaction.where(:user_id =>current_user.id) 
     @usersweeklyicons=Weeklyicon.where(:user_id =>current_user.id)
   end
   
   # GET /icons/1
   # GET /icons/1.json
   def show
+    @transaction = Transaction.new
   end
   
 
@@ -30,7 +32,7 @@ class IconsController < ApplicationController
 
     respond_to do |format|
       if @icon.save
-        format.html { redirect_to @icon, notice: 'Icon was successfully created.' }
+        format.html { redirect_to @icon, notice: 'New expense successfully added.' }
         format.json { render :show, status: :created, location: @icon }
       else
         format.html { render :new }
@@ -71,6 +73,6 @@ class IconsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def icon_params
-      params.require(:icon).permit(:title, :price, :user_id)
+      params.require(:icon).permit(:title, :price, :user_id, :image)
     end
 end

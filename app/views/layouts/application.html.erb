@@ -6,7 +6,6 @@
   <title>piggybank</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %> 
 </head>
@@ -43,8 +42,8 @@
       <ul class="nav navbar-nav navbar-right">
 
  <% if user_signed_in? %>
-        <li><a href="/profile/:userid">My piggybank</a></li> 
-        <li><%= link_to 'Expenses', icons_path(current_user) %></li>
+        <li><a href="/profile/:userid">My piggy bank</a></li> 
+        <li><%= link_to 'Expenses', transactions_path(current_user) %></li>
         <!-- new update path %= link_to 'Savings', new_update_path %></li> -->
         <li><%= link_to 'Savings', pictures_path(current_user) %></li>
         <!-- <li>%= link_to 'Expenses', new_budget_path %></li> -->

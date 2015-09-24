@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
   
 
   has_many :pictures  
-  has_many :icons
+  has_many :icons, :through => :transactions 
   has_many :budgets
   has_many :weeklyicons
   has_many :monthlyicons
+  has_many :transactions
   
 end

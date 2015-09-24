@@ -1,13 +1,15 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Category:</strong>
   <%= @icon.title %>
+</p> 
+
+<p>
+  <%= image_tag(@icon.image.url(:medium)) %> <br>
 </p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @icon.price %>
+<%= render 'transactions/form' %> 
 </p>
+
 
 <a href="/expenses">Add more</a> / <%= link_to 'Check my expenses', icons_path(current_user) %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :transactions
   resources :monthlyicons
   resources :weeklyicons
   get 'static_pages/expenses'
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   
   get '/savings/:userid' => 'pictures#index' 
   
-  get '/expenses/:userid' => 'icons#index'
+  get '/expenses/:userid' => 'transactions#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
