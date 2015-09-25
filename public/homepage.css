@@ -1,15 +1,15 @@
 #purple {
     background-color:#520A3D; 
-    height: 7000px; 
+    height: 650px; 
     margin-top:0px;
     margin-bottom:0px;
 }
 
 .jumbotron {
     background-color: #FFFFFF;
-    height: 700px; 
+    height: 650px; 
     margin-bottom: 0px;
-    margin-top: 0px;
+    margin-top: 50px;
 }
 
 #heading {
