@@ -1,0 +1,99 @@
+                  Prefix Verb   URI Pattern                         Controller#Action
+            transactions GET    /transactions(.:format)             transactions#index
+                         POST   /transactions(.:format)             transactions#create
+         new_transaction GET    /transactions/new(.:format)         transactions#new
+        edit_transaction GET    /transactions/:id/edit(.:format)    transactions#edit
+             transaction GET    /transactions/:id(.:format)         transactions#show
+                         PATCH  /transactions/:id(.:format)         transactions#update
+                         PUT    /transactions/:id(.:format)         transactions#update
+                         DELETE /transactions/:id(.:format)         transactions#destroy
+            monthlyicons GET    /monthlyicons(.:format)             monthlyicons#index
+                         POST   /monthlyicons(.:format)             monthlyicons#create
+         new_monthlyicon GET    /monthlyicons/new(.:format)         monthlyicons#new
+        edit_monthlyicon GET    /monthlyicons/:id/edit(.:format)    monthlyicons#edit
+             monthlyicon GET    /monthlyicons/:id(.:format)         monthlyicons#show
+                         PATCH  /monthlyicons/:id(.:format)         monthlyicons#update
+                         PUT    /monthlyicons/:id(.:format)         monthlyicons#update
+                         DELETE /monthlyicons/:id(.:format)         monthlyicons#destroy
+             weeklyicons GET    /weeklyicons(.:format)              weeklyicons#index
+                         POST   /weeklyicons(.:format)              weeklyicons#create
+          new_weeklyicon GET    /weeklyicons/new(.:format)          weeklyicons#new
+         edit_weeklyicon GET    /weeklyicons/:id/edit(.:format)     weeklyicons#edit
+              weeklyicon GET    /weeklyicons/:id(.:format)          weeklyicons#show
+                         PATCH  /weeklyicons/:id(.:format)          weeklyicons#update
+                         PUT    /weeklyicons/:id(.:format)          weeklyicons#update
+                         DELETE /weeklyicons/:id(.:format)          weeklyicons#destroy
+   static_pages_expenses GET    /static_pages/expenses(.:format)    static_pages#expenses
+                 budgets GET    /budgets(.:format)                  budgets#index
+                         POST   /budgets(.:format)                  budgets#create
+              new_budget GET    /budgets/new(.:format)              budgets#new
+             edit_budget GET    /budgets/:id/edit(.:format)         budgets#edit
+                  budget GET    /budgets/:id(.:format)              budgets#show
+                         PATCH  /budgets/:id(.:format)              budgets#update
+                         PUT    /budgets/:id(.:format)              budgets#update
+                         DELETE /budgets/:id(.:format)              budgets#destroy
+                pictures GET    /pictures(.:format)                 pictures#index
+                         POST   /pictures(.:format)                 pictures#create
+             new_picture GET    /pictures/new(.:format)             pictures#new
+            edit_picture GET    /pictures/:id/edit(.:format)        pictures#edit
+                 picture GET    /pictures/:id(.:format)             pictures#show
+                         PATCH  /pictures/:id(.:format)             pictures#update
+                         PUT    /pictures/:id(.:format)             pictures#update
+                         DELETE /pictures/:id(.:format)             pictures#destroy
+                   icons GET    /icons(.:format)                    icons#index
+                         POST   /icons(.:format)                    icons#create
+                new_icon GET    /icons/new(.:format)                icons#new
+               edit_icon GET    /icons/:id/edit(.:format)           icons#edit
+                    icon GET    /icons/:id(.:format)                icons#show
+                         PATCH  /icons/:id(.:format)                icons#update
+                         PUT    /icons/:id(.:format)                icons#update
+                         DELETE /icons/:id(.:format)                icons#destroy
+           profiles_show GET    /profiles/show(.:format)            profiles#show
+                 updates GET    /updates(.:format)                  updates#index
+                         POST   /updates(.:format)                  updates#create
+              new_update GET    /updates/new(.:format)              updates#new
+             edit_update GET    /updates/:id/edit(.:format)         updates#edit
+                  update GET    /updates/:id(.:format)              updates#show
+                         PATCH  /updates/:id(.:format)              updates#update
+                         PUT    /updates/:id(.:format)              updates#update
+                         DELETE /updates/:id(.:format)              updates#destroy
+             rails_admin        /admin                              RailsAdmin::Engine
+        new_user_session GET    /users/sign_in(.:format)            devise/sessions#new
+            user_session POST   /users/sign_in(.:format)            devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)           devise/sessions#destroy
+           user_password POST   /users/password(.:format)           devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)       devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)      devise/passwords#edit
+                         PATCH  /users/password(.:format)           devise/passwords#update
+                         PUT    /users/password(.:format)           devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)             devise/registrations#cancel
+       user_registration POST   /users(.:format)                    devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)            devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)               devise/registrations#edit
+                         PATCH  /users(.:format)                    devise/registrations#update
+                         PUT    /users(.:format)                    devise/registrations#update
+                         DELETE /users(.:format)                    devise/registrations#destroy
+                    root GET    /                                   static_pages#home
+       static_pages_home GET    /static_pages/home(.:format)        static_pages#home
+static_pages_whataboutit GET    /static_pages/whataboutit(.:format) static_pages#whataboutit
+       static_pages_blog GET    /static_pages/blog(.:format)        static_pages#blog
+                    home GET    /home(.:format)                     static_pages#home
+             whataboutit GET    /whataboutit(.:format)              static_pages#whataboutit
+                    blog GET    /blog(.:format)                     static_pages#blog
+                expenses GET    /expenses(.:format)                 static_pages#expenses
+                 profile GET    /profile/:userid(.:format)          profiles#show
+                         GET    /budget/:userid(.:format)           budgets#index
+                         GET    /savings/:userid(.:format)          pictures#index
+                         GET    /expenses/:userid(.:format)         transactions#index
+
+Routes for RailsAdmin::Engine:
+  dashboard GET         /                                      rails_admin/main#dashboard
+      index GET|POST    /:model_name(.:format)                 rails_admin/main#index
+        new GET|POST    /:model_name/new(.:format)             rails_admin/main#new
+     export GET|POST    /:model_name/export(.:format)          rails_admin/main#export
+bulk_delete POST|DELETE /:model_name/bulk_delete(.:format)     rails_admin/main#bulk_delete
+bulk_action POST        /:model_name/bulk_action(.:format)     rails_admin/main#bulk_action
+       show GET         /:model_name/:id(.:format)             rails_admin/main#show
+       edit GET|PUT     /:model_name/:id/edit(.:format)        rails_admin/main#edit
+     delete GET|DELETE  /:model_name/:id/delete(.:format)      rails_admin/main#delete
+show_in_app GET         /:model_name/:id/show_in_app(.:format) rails_admin/main#show_in_app
