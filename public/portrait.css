@@ -3,7 +3,7 @@
 @media all and (orientation:portrait){
   
   .jumbotron {
-  height: 450px;
+  height: 500px;
   }
   
   #heading {
@@ -20,7 +20,7 @@
   }
   
    #purple{
-    min-height: 450px;
+    height: 400px;
   }
   
   .h2 {
