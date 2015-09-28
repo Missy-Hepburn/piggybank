@@ -25,6 +25,7 @@
   color: #FFFFFF;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
+  margin-top: 180px; 
 }
  
 .h2 {
@@ -44,6 +45,8 @@
 }
 
 .videoWrapper iframe {
+  margin-top: 110px; 
+  margin-left: 10px;
 	position: absolute;
 	top: 0;
 	left: 0;

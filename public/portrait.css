@@ -15,12 +15,13 @@
   
   #teaser {
   text-align: center; 
-  line-height: 30px;
+  line-height: 20px;
   font-size: 25px;
+  padding-top: 20px;
   }
   
    #purple{
-    height: 400px;
+   height: 600px;
   }
   
   .h2 {
