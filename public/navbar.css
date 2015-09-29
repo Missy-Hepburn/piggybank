@@ -1,3 +1,8 @@
+.jumbotron {
+  background-color: #FFFFFF;
+  margin-top: 50px;
+}
+
 .navbar-default .navbar-collapse .navbar-default .navbar-form {
   border-color: #888888;
 }
