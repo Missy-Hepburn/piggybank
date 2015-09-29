@@ -1,7 +1,7 @@
 .jumbotron {
-  opacity: 0.7;
-  background-color: #FFFFFF;
-  margin-top: 70px;
+  opacity: 0;
+  margin-top: 0px;
+  height: 10px;
 }
 
 .navbar-default .navbar-collapse .navbar-default .navbar-form {
