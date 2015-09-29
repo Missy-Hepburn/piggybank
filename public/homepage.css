@@ -1,3 +1,24 @@
+.navbar-default .navbar-collapse .navbar-default .navbar-form {
+  border-color: #888888;
+}
+
+.navbar-default .navbar-nav >li >a {
+  color: #660066
+}
+
+.navbar-default {
+    background-color: #888888;
+    border-color: #888888;
+}
+
+.navbar-brand{
+  padding:5px;
+}
+
+.navbar .nav > li > a {
+    font-size: 15px;
+}
+
 #purple {
     background-color:#520A3D; 
     height: 600px; 
@@ -9,7 +30,7 @@
     background-color: #FFFFFF;
     height: 600px; 
     margin-bottom: 0px;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 #heading {
