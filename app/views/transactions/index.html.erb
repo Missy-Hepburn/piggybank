@@ -5,7 +5,8 @@
 <br>
 
 <div class="row">
-  <% @userstransactions.each do |transaction| %>
+  <!-- % @userstransactions.each do |transaction| %> -->
+  <% @userstransactions.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
   <div class="col-md-3">
     <div align="center">
     <%= transaction.price %>£<br>
