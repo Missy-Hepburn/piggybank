@@ -18,12 +18,24 @@
   <h2>This week:</h2>
 <br>
 
-<div class="row">
-    <% @usersweeklyicons.each do |weeklyicon| %>
-  <div class="col-xs-6 col-md-3">
-    <div align="center"><%= weeklyicon.weekly_expenses %>£<br>
-      <%= image_tag(weeklyicon.image.url(:medium)) %><br>
-      </div>
-  </div>
+  <% sum = 0; sums = {}; images = {} %>
+<% @userstransactions.select("transactions.*", "icons.*").joins(:icon).where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).order("transactions.icon_id").find_all do |transaction| %>
+
+  <% icon_type = transaction.icon.title;
+  if sums[icon_type] == nil
+    sums[icon_type] = transaction.price
+  else
+    sums[icon_type] += transaction.price
+  end
+images[icon_type] = transaction.icon.image.url(:medium) %>
+
   <% end %>
-</div>
+
+<div class="col-md-3">
+    <div align="center">
+    <% sums.each do |key, array| %>
+      <%= array %>£<br>
+      <%= image_tag(images[key]) %><br>
+    <% end %>
+    </div>
+  </div>
