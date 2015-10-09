@@ -1,12 +1,12 @@
+<html>
+  
 <div class="jumbotron">
 </div>
 
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @transaction.icon.title %>
-</p>
+<strong>Category:</strong>
+<%= @transaction.icon.title %>
 
 <p>
   <%= image_tag(@transaction.icon.image.url(:medium)) %>
@@ -18,3 +18,5 @@
 </p>
 
 <a href="/expenses">Add more</a> / <%= link_to 'Check my expenses', transactions_path(current_user) %>
+
+</html>

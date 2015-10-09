@@ -1,3 +1,7 @@
+<html>
+  
+<link rel="stylesheet" media="portrait" href="/portrait.css">
+  
 <h1>My expenses</h1>
 <br>
 
@@ -19,7 +23,9 @@
 <br>
 
   <% sum = 0; sums = {}; images = {} %>
-<% @userstransactions.select("transactions.*", "icons.*").joins(:icon).where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).order("transactions.icon_id").find_all do |transaction| %>
+<!-- % @userstransactions.select("transactions.*", "icons.*").joins(:icon).where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).order("transactions.icon_id").find_all do |transaction| %> --> 
+  
+   <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
 
   <% icon_type = transaction.icon.title;
   if sums[icon_type] == nil
@@ -41,3 +47,5 @@ images[icon_type] = transaction.icon.image.url(:medium) %>
       </div>
     <% end %>
   </div>
+
+</html>
