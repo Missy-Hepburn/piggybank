@@ -14,6 +14,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/1
   # GET /transactions/1.json
   def show
+    @userstransactions=Transaction.where(:user_id =>current_user.id)
+    @icons = Icon.all
   end
 
   # GET /transactions/new

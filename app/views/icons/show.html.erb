@@ -1,15 +1,8 @@
-<p>
+<div class="jumbotron">
+</div>
   <strong>Category:</strong>
   <%= @icon.title %>
-</p> 
-
 <p>
-  <%= image_tag(@icon.image.url(:medium)) %> <br>
+  <%= image_tag(@icon.image.url(:medium)) %>
 </p>
-
-<p>
 <%= render 'transactions/form' %> 
-</p>
-
-
-<a href="/expenses">Add more</a> / <%= link_to 'Check my expenses', icons_path(current_user) %>

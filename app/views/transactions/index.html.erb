@@ -31,11 +31,13 @@ images[icon_type] = transaction.icon.image.url(:medium) %>
 
   <% end %>
 
-<div class="col-md-3">
-    <div align="center">
+<div class="row">
     <% sums.each do |key, array| %>
+    <div class="col-md-3">
+      <div align="center">
       <%= array %>£<br>
-      <%= image_tag(images[key]) %><br>
+      <%= image_tag(images[key]) %>
+      </div>
+      </div>
     <% end %>
-    </div>
   </div>
