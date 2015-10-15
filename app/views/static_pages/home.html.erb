@@ -28,24 +28,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/home"><img alt="Brand" width="55" height="55" src="/Myimages/Piggy bank_logo_transparentbckgrd.png"></a>
-    </div>
+       <a class="navbar-brand" href="/home"><img alt="Brand" width="55" height="55" src="/Myimages/Piggybank_sunglasses_2.png"></a><img width="135" height="65" src="/Myimages/Piggy bank_logo_beta.png"></div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav navbar-nav navbar-right">
 
- <% if user_signed_in? %>
+  <% if user_signed_in? %>
         <li><a href="/profile/:userid">My piggybank</a></li> 
         <li><%= link_to 'Expenses', transactions_path(current_user) %></li>
         <!-- new update path %= link_to 'Savings', new_update_path %></li> -->
-        <li><%= link_to 'Savings', pictures_path(current_user) %></li>
+        <!-- <li> %= link_to 'Savings', pictures_path(current_user) %></li> -->
         <!-- <li>%= link_to 'Expenses', new_budget_path %></li> -->
         <li><a href="/expenses">Expenses tracker</a></li>    
         <li><%= link_to 'Log out', destroy_user_session_path, :method=>:delete %></li>
+       <li><a href="mailto:pimpmypiggybank@gmail.com">Contact us</a></li>
   <%else%>
         <li><%= link_to 'Log in', new_user_session_path %></li>
         <li><%= link_to 'Sign up', new_user_registration_path %></li>
+       <li><a href="mailto:pimpmypiggybank@gmail.com">Contact us</a></li>
         <!-- <li><a href="/blog">Blog</a></li> -->
   <%end%>
         </ul>   
@@ -97,7 +98,7 @@
             </div>   
         <div class="col-md-6">
          <div class="videoWrapper">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/VZuseNTXpos" frameborder="0" allowfullscreen></iframe>
+      <iframe width="552" height="298" src="http://www.wideo.co/embed/7912521444468271615?height=288&width=512" frameborder="0" allowfullscreen></iframe>
           </div>
     </div>
        </div>

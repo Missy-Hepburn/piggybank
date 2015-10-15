@@ -27,5 +27,18 @@
   .h2 {
     font-size: 30px;    
   }
+  
+  #beta {
+    width: 120px;
+  }
+  
 }
+
+<!-- .navbar-default .navbar-toggle .icon-bar {
+    background-color: #990099;
+  }-->
+ 
+  <!--.button, input, optgroup, select, textarea {
+    color: #990099; 
+  } -->
 

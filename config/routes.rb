@@ -11,10 +11,15 @@ Rails.application.routes.draw do
 
   resources :updates
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :users
   
-  root 'static_pages#home'
+  authenticated :user do
+  root 'profiles#show', as: :authenticated_root
+  end
   
+  root 'static_pages#home'
+
   get 'static_pages/home'
 
   get 'static_pages/whataboutit'
@@ -37,6 +42,7 @@ Rails.application.routes.draw do
   
   get '/expenses/:userid' => 'transactions#index'
   
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
