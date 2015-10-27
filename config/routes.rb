@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   
   get '/expenses/:userid' => 'transactions#index'
   
+  get '/mybudget' => 'static_pages#budget'
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

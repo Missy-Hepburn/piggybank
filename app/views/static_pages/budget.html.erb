@@ -1,0 +1,54 @@
+<html>
+  
+  <head>
+   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  </head>
+  
+  <body>
+ 
+   <div class="jumbotron"></div>
+    
+    <% sum = 0; daily_budget = 0; weekly_budget = 0; monthly_budget = 0; monthly_savings = 0 %>
+
+  <h3>Weekly budget:</h3><p>
+    <% @usersbudgets.each do |budget| %>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+
+  <% weekly_budget = (budget.monthly_budget - budget.monthly_savings) / 4.33  %>
+  <% sum += transaction.price %>
+
+<%end%>
+<%end%>
+    
+    <h4><strong><%= weekly_budget.round(2) %>£</strong></h4>
+
+    <script type="text/javascript">
+      var expensesVsBudget = [<%= sum %>, <%=  weekly_budget.round(2) - sum %> ];
+    </script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Expenses', '£'],
+          ['Spent',  expensesVsBudget[0]],
+          ['Available', expensesVsBudget[1]],
+        ]);
+
+        var options = {
+          title: '',
+          pieHole: 0.3,
+          colors: ['#75195a','#E2A9F3']
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+    
+     <div id="donutchart" style="width:500px; height:300px">
+    </div>
+    
+  </body>
+
+</html>

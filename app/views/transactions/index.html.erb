@@ -4,26 +4,36 @@
   
 <h1>My expenses</h1>
 <br>
+  
+<% daily_expenses = 0 %>
 
-<h2>Today:</h2>
-<br>
+ <% @userstransactions.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+ 
+    <% daily_expenses += 1 
+if daily_expenses == 1 %>
+  <h2>Today:</h2>
+  <br>
+  <div class="row">
+    <%end%>
+    <div class="col-md-3">
+      <div align="center">
+      <%= transaction.price %>£<br>
+      <%= image_tag(transaction.icon.image.url(:medium)) %><br>
+    </div>
+   </div>
+  <% end %>
+  
+     <% if daily_expenses == 0 %>
+    <h3> No expenses to show today!</h3><p>
+    <a class="btn btn-default" href="/expenses" role="button">Update expenses</a>
+    <% else %>
+     </div>
+    <% end %>  
 
-<div class="row">
-  <!-- % @userstransactions.each do |transaction| %> -->
-  <% @userstransactions.where(created_at: (Time.now.midnight)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
-  <div class="col-md-3">
-    <div align="center">
-    <%= transaction.price %>£<br>
-    <%= image_tag(transaction.icon.image.url(:medium)) %><br></div>
-  </div>
-    <% end %>
-  </div>
-
-  <h2>This week:</h2>
-<br>
+   <h2>This week:</h2>
+  <br>
 
   <% sum = 0; sums = {}; images = {} %>
-<!-- % @userstransactions.select("transactions.*", "icons.*").joins(:icon).where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).order("transactions.icon_id").find_all do |transaction| %> --> 
   
    <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
 
@@ -46,6 +56,33 @@ images[icon_type] = transaction.icon.image.url(:medium) %>
       </div>
       </div>
     <% end %>
-  </div>
+  </div>    
+  
+<% sum = 0; sums = {}; images = {} %>
+  
+  <h2>This month:</h2>
+  
+   <% @userstransactions.where(created_at: (Time.now.midnight - 30.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
 
+  <% icon_type = transaction.icon.title;
+  if sums[icon_type] == nil
+    sums[icon_type] = transaction.price
+  else
+    sums[icon_type] += transaction.price
+  end
+images[icon_type] = transaction.icon.image.url(:medium) %>
+
+  <%end%>
+
+<div class="row">
+    <% sums.each do |key, array| %>
+    <div class="col-md-3">
+      <div align="center">
+      <%= array %>£<br>
+      <%= image_tag(images[key]) %>
+      </div>
+      </div>
+   <%end%>
+  </div>
+  
 </html>

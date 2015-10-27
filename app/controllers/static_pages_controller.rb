@@ -12,4 +12,10 @@ class StaticPagesController < ApplicationController
   def expenses
   end
   
+  def budget
+    @usersbudgets=Budget.where(:user_id =>current_user.id)
+    @userstransactions=Transaction.where(:user_id =>current_user.id)
+    @icons = Icon.all
+  end
+  
 end
