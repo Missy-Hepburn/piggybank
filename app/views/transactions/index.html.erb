@@ -17,7 +17,7 @@ if daily_expenses == 1 %>
     <%end%>
     <div class="col-md-3">
       <div align="center">
-      <%= transaction.price %>£<br>
+      <h4><strong>£<%= transaction.price %></strong></h4>
       <%= image_tag(transaction.icon.image.url(:medium)) %><br>
     </div>
    </div>
@@ -51,7 +51,7 @@ images[icon_type] = transaction.icon.image.url(:medium) %>
     <% sums.each do |key, array| %>
     <div class="col-md-3">
       <div align="center">
-      <%= array %>£<br>
+       <h4><strong>£<%= array %></strong></h4>
       <%= image_tag(images[key]) %>
       </div>
       </div>
@@ -78,7 +78,7 @@ images[icon_type] = transaction.icon.image.url(:medium) %>
     <% sums.each do |key, array| %>
     <div class="col-md-3">
       <div align="center">
-      <%= array %>£<br>
+        <h4><strong>£<%= array %></strong></h4>
       <%= image_tag(images[key]) %>
       </div>
       </div>

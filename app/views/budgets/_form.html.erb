@@ -1,7 +1,7 @@
 <%= form_for(@budget) do |f| %>
   <% if @budget.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+      <h2><%= pluralize(@budget.errors.count, "error") %> prohibited this form from being saved:</h2>
 
       <ul>
       <% @budget.errors.full_messages.each do |message| %>
@@ -12,15 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :savings_target, 'What are you saving towards?' %><br>
-    <%= f.text_field :savings_target %>
-  </div>
-  <div class="field">
-    <%= f.label :monthly_savings, 'How much do you want to save monthly?' %><br>
+    <%= f.label :monthly_savings, 'My monthly savings' %><br>
     <%= f.text_field :monthly_savings %>
   </div>
   <div class="field">
-    <%= f.label :monthly_budget, 'What is your monthly income/budget?' %><br>
+    <%= f.label :monthly_budget, 'My monthly income/budget' %><br>
     <%= f.text_field :monthly_budget %>
   </div>
   <div class="field">
@@ -28,6 +24,6 @@
   </div>
 <p>
   <div class="actions">
-    <%= f.submit "Submit details" %>
+    <%= f.submit "Save" %>
   </div>
 <% end %>

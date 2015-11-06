@@ -28,7 +28,7 @@ class BudgetsController < ApplicationController
 
     respond_to do |format|
       if @budget.save
-        format.html { redirect_to @budget, notice: 'Thank you! We now have your details and will help you stay on track.' }
+        format.html { redirect_to @budget, notice: 'Thank you! See your details below:' }
         format.json { render :show, status: :created, location: @budget }
       else
         format.html { render :new }

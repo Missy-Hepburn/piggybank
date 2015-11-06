@@ -1,0 +1,115 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <div class="jumbotron"></div>
+
+    <% daily_expenses = 0; weekly_expenses = 0; monthly_expenses = 0; daily_budget = 0; weekly_budget = 0; monthly_budget = 0; monthly_savings = 0 %>
+
+    <% @usersbudgets.each do |budget| %>
+        <% daily_budget = (budget.monthly_budget - budget.monthly_savings) / 30.44  %>
+    <%end%>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+        <% daily_expenses += transaction.price %>
+    <%end%>
+
+   <% @usersbudgets.each do |budget| %>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+
+  <% weekly_budget = (budget.monthly_budget - budget.monthly_savings) / 4.33  %>
+  <% weekly_expenses += transaction.price %>
+
+<%end%>
+<%end%>
+
+    <% @usersbudgets.each do |budget| %>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 31.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+
+<% monthly_budget += 1 
+if monthly_budget == 1 %>
+
+  <% monthly_budget = (budget.monthly_budget - budget.monthly_savings) %>
+  <% monthly_expenses += transaction.price %>
+
+<%end%>
+<%end%> 
+
+<div class="row">
+  <div class="col-md-4">
+    <div align="center">
+       <h3>Daily budget:</h3><p>
+       <h4><strong>£<%= daily_budget.round(2) %></strong></h4>
+       <div id="donutchart_d" style="width:500px; height:300px">
+       </div>
+    </div>
+  </div>
+  
+
+  <div class="col-md-4">
+    <div align="center">
+    <h3>Weekly budget:</h3><p>
+    <h4><strong>£<%= weekly_budget.round(2) %></strong></h4>
+       <div id="donutchart_w" style="width:500px; height:300px">
+    </div>
+  </div>
+ </div>
+
+  <div class="col-md-4">
+     <div align="center">
+        <h3>Monthly budget:</h3><p>
+        <h4><strong>£<%= monthly_budget.round(2) %></strong></h4>
+         <div id="donutchart_m" style="width:500px; height:300px">
+         </div>
+      </div>
+    </div>
+  <% end %>
+  
+    <% if monthly_budget == 0 %>
+    <h3> Looks like we don't have your details yet!</h3><p>
+    <a class="btn btn-default" href="/budgets/new" role="button">Update budget</a>
+    <% else %>
+    </div>
+    <% end %> 
+
+     <script type="text/javascript">
+       var expensesVsBudget = [ <%= daily_expenses %>, <%= daily_budget.round(2) - daily_expenses %>, <%= weekly_expenses %>, <%= weekly_budget.round(2) - weekly_expenses %>, <%= monthly_expenses %>, <%=  monthly_budget.round(2) - monthly_expenses %> ];
+    </script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawCharts);
+
+function chartDailyBudget() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Expenses', '£'],
+          ['Spent',  expensesVsBudget[0]],
+          ['Available', expensesVsBudget[1]],
+        ]);
+        var options = {'title':'', pieHole: 0.3, colors: ['#75195a','#E2A9F3']};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_d'));
+        chart.draw(data, options);
+      }
+
+function chartWeeklyBudget() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Expenses', '£'],
+          ['Spent',  expensesVsBudget[2]],
+          ['Available', expensesVsBudget[3]],
+        ]);
+        var options = {'title':'', pieHole: 0.3, colors: ['#75195a','#E2A9F3']};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_w'));
+        chart.draw(data, options);
+      }
+
+     function chartMonthlyBudget() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Expenses', '£'],
+          ['Spent',  expensesVsBudget[4]],
+          ['Available', expensesVsBudget[5]],
+        ]);
+        var options = {'title':'', pieHole: 0.3, colors: ['#75195a','#E2A9F3']};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_m'));
+        chart.draw(data, options);
+      }
+      function drawCharts() {
+        chartDailyBudget();
+        chartWeeklyBudget();
+        chartMonthlyBudget();
+      }
+    </script>

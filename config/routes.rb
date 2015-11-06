@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   
   get '/expenses/:userid' => 'transactions#index'
   
-  get '/mybudget' => 'static_pages#budget'
+  get '/stats' => 'static_pages#stats'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-<head>
+  
+  <head>
   
   <title>piggybank</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %> 
+    
+  </head>
+  
+<body>
  
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
 <!-- Sandstone theme --> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/sandstone/bootstrap.min.css">
-<link rel="stylesheet" href="/navbar.css">
-<link rel="stylesheet" media="portrait" href="/portrait.css">
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<link rel="stylesheet" href="/navbarpb.css">
+<link rel="stylesheet" href="/piggyhp.css">
+<link rel="stylesheet" media="all and (orientation:portrait)" href="/portraitforpb.css">
    
- 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-custom navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -28,110 +33,152 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-       <a class="navbar-brand" href="/home"><img alt="Brand" width="55" height="55" src="/Myimages/Piggybank_sunglasses_2.png"></a></div>
-
+       <a class="navbar-brand" href="/home"><img alt="Brand" width="150" height="55" src="/Myimages/homepage/Piggy bank_logo_beta_big.png"></a></div>
+      
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
      <ul class="nav navbar-nav navbar-right">
 
   <% if user_signed_in? %>
-        <li><a href="/profile/:userid">My piggybank</a></li> 
-        <li><%= link_to 'Expenses', transactions_path(current_user) %></li>
-        <!-- new update path %= link_to 'Savings', new_update_path %></li> -->
-        <!-- <li> %= link_to 'Savings', pictures_path(current_user) %></li> -->
-        <!-- <li>%= link_to 'Expenses', new_budget_path %></li> -->
-        <li><a href="/expenses">Expenses tracker</a></li>    
-        <li><%= link_to 'Log out', destroy_user_session_path, :method=>:delete %></li>
-       <li><a href="mailto:pimpmypiggybank@gmail.com">Contact us</a></li>
+        <li><a href="/profile/:userid">profile</a></li>       
+        <li><a href="/expenses">tracker</a></li> 
+        <li><%= link_to 'stats', transactions_path(current_user) %></li>
+        <li><%= link_to 'log out', destroy_user_session_path, :method=>:delete %></li>
+        <li><a class="btn btn-default" href="mailto:pimpmypiggybank@gmail.com" role="button">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
   <%else%>
-        <li><%= link_to 'Log in', new_user_session_path %></li>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-       <li><a href="mailto:pimpmypiggybank@gmail.com">Contact us</a></li>
+        <li><%= link_to 'log in', new_user_session_path %></li>
+        <li><%= link_to 'sign up', new_user_registration_path %></li>
+        <li><a class="btn btn-custom" href="mailto:pimpmypiggybank@gmail.com" role="button">
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></a></li>
         <!-- <li><a href="/blog">Blog</a></li> -->
   <%end%>
         </ul>   
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav>
+ </nav>
   
-</head>
-
-<!-------------------------------------------NAVBAR END------------------------------------------------------>
-  
-<body>
-  
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-<!-- Sandstone theme --> 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/sandstone/bootstrap.min.css">
-<link rel="stylesheet" href="/homepage.css"> 
-<link rel="stylesheet" media="all and (orientation:portrait)" href="/portrait.css">
-<link rel="stylesheet" media="all and (orientation:portrait)" href="/vid-responsive.css">
-  
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  
-<div class="jumbotron">
+<div id="jumboimage">
   <div class="container-fluid">
-    <div class="row-fluid">
-    <div class="col-xs-12 col-md-6">
-      <div id="heading">
-        Make saving sexy <a href="http://pimpmypiggybank.herokuapp.com/users/sign_up">now</a>
-      </div>
-      </div>
-      <div class="col-xs-12 col-md-6">
-      <img width="400" height="430"src="/Myimages/Piggybank_sunglasses_2.png" class="img-responsive center-block" alt="Responsive image">
-      </div>
-</div>
-</div>
-</div>
- 
-<div id="purple">
-  <div class="container-fluid">   
-     <div class="row-fluid">  
-        <div class="col-md-6">
-          <div align="center">
-           <div id="teaser">   
-             Tracking your finances has just become gamified
-             </div>          
-              </div>
-            </div>   
-        <div class="col-md-6">
-         <div class="videoWrapper">
-      <iframe width="552" height="298" src="http://www.wideo.co/embed/7912521444468271615?height=288&width=512" frameborder="0" allowfullscreen></iframe>
+    <div id="heading">
+      <h1>Goodbye tables,<br> Hello piggy bank.</h1>
+        <h2>#SavingMadeSexy</h2> 
           </div>
-    </div>
-       </div>
-       
-    </div>
+            <div class ="row">
+            <div class="col-md-8">
+              </div>
+              <div class="col-md-2">
+               <div id="buttons">
+                <a class ="iframe btn btn-default" 
+                 href="http://wideo.co/view/7912521444468271615-piggy-bank-demo?from=cp" 
+                   target="_blank">Watch video</a>
+                </div>
+                </div>
+              <div class="col-md-2">
+                <div id="buttons">
+                  <a class="btn btn-default" href="/users/sign_up" role="button">sign up free</a>
+                </div>
+              </div>
+          </div>
+        </div>
     </div>
   
- <div class="jumbotron">
-  <div class="container-fluid">
-    
-    <div class="row-fluid">
-      
-    <div class="col-md-4">
-      <div align="center">
-      <h2>NO BBS<br>(Boring Bank Statements)</h2><br>
-      <img width="430" height="380" src="/Myimages/bank statement_test2.png" class="img-responsive center-block" alt="Responsive image">
+<div id="jumbographic"> 
+ <div class="container-fluid">
+   <div class="row-fluid">
+     <div class="col-md-6">
+       <div id="teaser">
+        <h5>Log your expenses on the go</h5>
+     <h8>Use our web app on your mobile when you're out and about and log expenses before you forget</h8>
+         </div>
+        </div>
+      <div class="col-md-6">
+        <div id="imagecontainer">
+          <img width="400px" height="250px" src="/Myimages/homepage/smartphone_girl_expenses.png" class="img-circle img-responsive center-block" alt="Responsive image">
+        </div>
       </div>
+    </div> 
+  </div>
+</div>
+  
+<div id="jumbosimple"> 
+ <div class="container-fluid">
+     <div class="row-fluid">
+       <div class="col-md-6">
+          <div id="imagecontainer">
+            <img width="400px" height="250px" src="/Myimages/homepage/laptop_stats_small.png" class="img-circle img-responsive center-block" alt="Responsive image">
+          </div>
+         </div>
+       <div class="col-md-6">
+         <div id="teaser">
+           <h6>Track your spending from home</h6><p>
+           <h9> Check where you're at with your spending limit, see where you spend and where you could save, all from the comfort of your home</h9>       
+         </div>
+        </div>
+    </div> 
+  </div>
+</div>
+       
+<div id="jumbonation">
+  <div class="container-fluid"> 
+    <div id="textcontainer">
+      <div class="row-fluid">
+          <h3>Why Piggy Bank?</h3><p>
+             <h4>We've tried monitoring our spending in the past. We've tried paper and pen, we've 
+               tried spreadsheets. We meant well but we never stuck with our budget. None of the 
+               tools we used seemed to be good enough. So we wondered how we could make it enticing.                That's right, we wanted to make saving sexy!</h4>
       </div>
-    <div class="col-md-4">  
-      <div align="center">
-      <h2>Visuals make<br>budgeting fun</h2><br>
-      <img width="215" height="350" src="/Myimages/screenshot.png" class="img-responsive center-block" alt="Responsive image">
+      <div class="row-fluid">        
+          <h3>How does Piggy Bank help me?</h3><p>
+        <h4>Piggy Bank allows you to log your expenses <strong>on the go</strong> and see where you                       are at with your budget. To make it easier not to go over your budget we set <strong> 
+            daily, weekly and monthly</strong> spending limits for you and show you how close you 
+            are to these limits. That way you won't realise at the end of the month that you spent 
+            all your money.</h4>
       </div>
+      <div class="row-fluid"> 
+          <h3>How do I use Piggy Bank?</h3><p>
+          <h4>We're a responsive web app, which means you can track your spending both from your 
+            mobile and your desktop. Signing up takes less than a minute, so get started now!</h4><p>
       </div>
-      <div class="col-md-4"> 
+      <div class="row-fluid">
         <div align="center">
-      <h2>Set targets for yourself,<br>the sky is the limit!</h2><br>
-      <img width="420" height="365" src="/Myimages/flight_test.png" class="img-responsive center-block" alt="Responsive image">
+          <a href="/users/sign_up"><h6>>> sign up now</h6></a>
+        </div>
+       </div>
+    </div>
+ </div>
+</div>
+  
+<div id="footer"> 
+  <div class="container-fluid">
+    <div id="textcontainer">
+      <div class="row-fluid">
+           <div class="col-md-1">
+             <div id="footertext">
+                <h7>Say hi:</h7>
+              </div>
+             </div>
+           <div class="col-md-1">
+               <a href="https://www.facebook.com/pimpmypiggybank"><img width="60px" height="40px"
+                src="/Myimages/homepage/Facebook_logo2.png" class="img-responsive center-block" 
+                alt="Responsive image"></a>
+            </div>
+            <div class="col-md-1">
+             <a href="https://twitter.com/pimpmypiggybank"><img width="60px" height="60px" 
+              src="/Myimages/homepage/twitter_logo2.png" class="img-responsive center-block"
+              alt="Responsive image"></a>
+            </div> 
+            <div class="col-md-7">
+            </div>
+            <div class="col-md-2">
+               <div id="footertext">
+                <h7>© 2015 Piggy Bank</h7>
+               </div>
+            </div>
+        </div>
       </div>
-      </div>
-    
     </div>
    </div>
-  </div>
-      
+  
 </body>
 </html>

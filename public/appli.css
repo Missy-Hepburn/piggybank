@@ -8,3 +8,23 @@
   color: #75195a;
 }
 
+.h5, .h5 {
+  font-size: 10px;
+  color: #82ED96;
+}
+
+.btn {
+    font-size: 17px;
+    line-height: 23px;
+    text-transform: none 
+}
+
+.btn-default {
+    color: #FFFFFF;
+    background-color: #75195a;
+    text-shadow: none;
+}
+
+.btn-default:hover {
+    background-color: #1ad159;
+}

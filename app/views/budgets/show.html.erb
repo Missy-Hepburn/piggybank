@@ -2,11 +2,8 @@
   
 <div class="jumbotron">
 </div>
-
-<p>
-  <strong>Savings target:</strong>
-  <%= @budget.savings_target %>
-</p>
+  
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Monthly savings:</strong>
@@ -18,7 +15,8 @@
   <%= @budget.monthly_budget %>
 </p>
 
-<%= link_to 'Edit', edit_budget_path(@budget) %> |
-<%= link_to 'Back', budgets_path %>
+<a class="btn btn-default" href="/profile/:userid" role="button">
+  <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+</a>
   
 </html>

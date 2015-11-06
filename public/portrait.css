@@ -2,7 +2,7 @@
 
 @media all and (orientation:portrait){
   
-  .jumbotron {
+  .jumboimage {
   height: 600px;
   }
   
@@ -32,13 +32,11 @@
     width: 120px;
   }
   
-}
+  .btn {
+    font-size: 15px;
+    line-height: 20px; 
+  }
 
-<!-- .navbar-default .navbar-toggle .icon-bar {
-    background-color: #990099;
-  }-->
- 
-  <!--.button, input, optgroup, select, textarea {
-    color: #990099; 
-  } -->
+  
+}
 

@@ -1,13 +1,16 @@
 <html>
-<link rel="stylesheet" media="portrait" href="/portrait.css">
+<link rel="stylesheet" media="all and (orientation:portrait)" href="/portrait.css">
 
 <div class="jumbotron">
 </div>
-  
-<div align="center"><h1>What did you buy today?</h1></div>
+ 
+  <div align="center">
+    <h1>What did you buy?</h1>
+      </div>
 
-<div class=container-fluid>
-  
+<div class="container-fluid">
+  <div class="row">
+    
   <div class="col-md-4"> 
     <a href="/icons/19"><img height=300 src="/Myimages/1_pb_expenses_coffee.png" class="img-responsive"></a>
   </div>
@@ -17,26 +20,25 @@
   </div>
   
   <div class="col-md-4"> 
-    <a href="/icons/21"><img height=300 src="/Myimages/3_pb_expenses_groceries_test.png" class="img-responsive"></a></div>
-</div>
-
-<div class=container-fluid>
-
+    <a href="/icons/21"><img height=300 src="/Myimages/3_pb_expenses_groceries_test.png" class="img-responsive"></a>
+    </div>
+  </div>
   
-  <div class="col-md-4"> 
+  <div class="row">
+    <div class="col-md-4"> 
     <a href="/icons/22"><img height=300 src="/Myimages/4_pb_expenses_clothes.png" class="img-responsive">
     </a></div>
   
-  <div class="col-md-4"> 
+    <div class="col-md-4"> 
     <a href="/icons/23"><img height=300 src="/Myimages/5_pb_expenses_drinks.png" class="img-responsive">
     </a></div>
   
-  <div class="col-md-4"> 
-    <a href="/icons/24"><img height=300 src="/Myimages/6_pb_expenses_restaurant2.png" class="img-responsive"></a>
+    <div class="col-md-4"> 
+    <a href="/icons/24"><img height=300 src="/Myimages/6_pb_expenses_restaurant2.png" class="img-responsive">      </a>
+   </div>
   </div>
-</div>
   
-<div class=container-fluid>
+<div class="row">
   
   <div class="col-md-4"> 
     <a href="/icons/25"><img height=300 src="/Myimages/7_pb_expenses_entertainment.png" class="img-responsive">
@@ -51,18 +53,25 @@
   </div>
 </div>
 
-<div class=container-fluid>
+  <div class="row">
   
-  <div class="col-md-4"> 
+    <div class="col-md-4"> 
     <a href="/icons/28"><img height=300 src="/Myimages/10_pb_expenses_mobile.png" class="img-responsive">
     </a></div>
   
-  <div class="col-md-4"> 
+    <div class="col-md-4"> 
     <a href="/icons/29"><img height=300 src="/Myimages/11_pb_expenses_householdbill.png" class="img-responsive">
     </a></div>
-  
-  <div class="col-md-4"> 
+    
+    <div class="col-md-4"> 
     <a href="/icons/30"><img height=300 src="/Myimages/12_pb_expenses_rent.png" class="img-responsive"></a>
   </div>
+  </div>
 </div>
+
+  <div align="center"> 
+    <a class="btn btn-default" href="/profile/:userid" role="button">Home</a>
+  </div>
+  
+  
 </html>

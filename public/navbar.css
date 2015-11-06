@@ -1,20 +1,125 @@
-.navbar-default .navbar-collapse .navbar-default .navbar-form {
-  border-color: #888888;
+.navbar-custom {
+  background-color: #75195a;
+  border-color: #5a1345;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#9f227a), to(#75195a));
+  background-image: -webkit-linear-gradient(top, #9f227a, 0%, #75195a, 100%);
+  background-image: -moz-linear-gradient(top, #9f227a 0%, #75195a 100%);
+  background-image: linear-gradient(to bottom, #9f227a 0%, #75195a 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9f227a', endColorstr='#ff75195a', GradientType=0);
+}
+.navbar-custom .navbar-brand {
+  color: #ffffff;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-brand:focus {
+  color: #e6e6e6;
+  background-color: transparent;
+}
+.navbar-custom .navbar-text {
+  color: #ffffff;
+}
+.navbar-custom .navbar-nav > li > a {
+  color: #ffffff;
+}
+.navbar-custom .navbar-nav > li > a:hover,
+.navbar-custom .navbar-nav > li > a:focus {
+  color: #1ad159;
+  background-color: transparent;
+}
+.navbar-custom .navbar-nav > .active > a,
+.navbar-custom .navbar-nav > .active > a:hover,
+.navbar-custom .navbar-nav > .active > a:focus {
+  color: #1ad159;
+  background-color: #5a1345;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#5a1345), to(#841c65));
+  background-image: -webkit-linear-gradient(top, #5a1345, 0%, #841c65, 100%);
+  background-image: -moz-linear-gradient(top, #5a1345 0%, #841c65 100%);
+  background-image: linear-gradient(to bottom, #5a1345 0%, #841c65 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5a1345', endColorstr='#ff841c65', GradientType=0);
+}
+.navbar-custom .navbar-nav > .disabled > a,
+.navbar-custom .navbar-nav > .disabled > a:hover,
+.navbar-custom .navbar-nav > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+.navbar-custom .navbar-toggle {
+  border-color: #dddddd;
+}
+.navbar-custom .navbar-toggle:hover,
+.navbar-custom .navbar-toggle:focus {
+  background-color: #dddddd;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+  background-color: #cccccc;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+  border-color: #581343;
+}
+.navbar-custom .navbar-nav > .dropdown > a:hover .caret,
+.navbar-custom .navbar-nav > .dropdown > a:focus .caret {
+  border-top-color: #1ad159;
+  border-bottom-color: #1ad159;
+}
+.navbar-custom .navbar-nav > .open > a,
+.navbar-custom .navbar-nav > .open > a:hover,
+.navbar-custom .navbar-nav > .open > a:focus {
+  background-color: #5a1345;
+  color: #1ad159;
+}
+.navbar-custom .navbar-nav > .open > a .caret,
+.navbar-custom .navbar-nav > .open > a:hover .caret,
+.navbar-custom .navbar-nav > .open > a:focus .caret {
+  border-top-color: #1ad159;
+  border-bottom-color: #1ad159;
+}
+.navbar-custom .navbar-nav > .dropdown > a .caret {
+  border-top-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+@media (max-width: 767) {
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a {
+    color: #ffffff;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #1ad159;
+    background-color: transparent;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #1ad159;
+    background-color: #5a1345;
+  }
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar-custom .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #cccccc;
+    background-color: transparent;
+  }
+}
+.navbar-custom .navbar-link {
+  color: #ffffff;
+}
+.navbar-custom .navbar-link:hover {
+  color: #82ED96;
 }
 
-.navbar-default .navbar-nav >li >a {
-  color: #660066
-}
-
-.navbar-default {
-    background-color: #888888;
-    border-color: #888888;
+.navbar {
+    min-height: 50px;
+    margin-bottom: 0px;
+    border: 0px transparent;
 }
 
 .navbar-brand{
   padding:5px;
 }
 
-.navbar .nav > li > a {
-    font-size: 15px;
+.navbar-custom .nav > li > a {
+    font-size: 18px;
+    text-transform: none;
 }
