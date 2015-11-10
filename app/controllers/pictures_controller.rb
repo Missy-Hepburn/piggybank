@@ -4,9 +4,9 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index 
-    @userspictures=Picture.where(:user_id =>current_user.id)
-    @usersupdates=Update.where(:user_id =>current_user.id)
     @usersbudgets=Budget.where(:user_id =>current_user.id)
+    @userstransactions=Transaction.where(:user_id =>current_user.id)
+    @icons = Icon.all
   end
 
   # GET /pictures/1

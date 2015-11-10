@@ -1,24 +1,117 @@
-<html>
-  
-<h1><font face="impact" color="#660066">My savings</font></h1>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <div class="jumbotron"></div>
 
-<h3>Saved to date: <strong><% @usersupdates.each do |update| %>
-  <%= update.weekly_interest %>£ </strong></h3>
-<% end %>
+<% daily_savings_target = 0; weekly_savings_target = 0; monthly_savings_target = 0; actual_daily_savings = 0; actual_weekly_savings = 0; actual_monthly_savings = 0; monthly_budget = 0; monthly_savings = 0; %>
+
+    <% @usersbudgets.each do |budget| %>
+<% daily_savings_target = budget.monthly_savings / 30.44  %>
+    <%end%>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+  <% actual_daily_savings += (budget.monthly_budget / 30.44) - transaction.price %>
+    <%end%>
+
+   <% @usersbudgets.each do |budget| %>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+
+  <% weekly_savings_target = budget.monthly_savings / 4.33  %>
+  <% actual_weekly_savings += (budget.monthly_budget / 4.33) - transaction.price %>
+
+<%end%>
+<%end%>
+
+    <% @usersbudgets.each do |budget| %>
+    <% @userstransactions.where(created_at: (Time.now.midnight - 31.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+
+<% monthly_budget += 1 
+if monthly_budget == 1 %>
+
+  <% monthly_savings_target = budget.monthly_savings %>
+
+  <% monthly_budget = (budget.monthly_budget - budget.monthly_savings) %>
+  <% actual_monthly_savings += budget.monthly_budget - transaction.price  %>
+
+<%end%>
+<%end%> 
 
 <div class="row">
   <div class="col-md-4">
-  <h3>I'm saving towards: <% @usersbudgets.each do |budget| %><br>
-  <%= image_tag(budget.image.url(:medium)) %></h3>
-<% end %>
+    <div align="center">
+       <h3>Daily savings:</h3><p>
+       <h4><strong>£<%= daily_savings_target.round(2) %></strong></h4>
+       <div id="donutchart_d" style="width:500px; height:300px">
+       </div>
+    </div>
   </div>
-<div class="col-md-4">
-  <h3>In my piggy bank: <% @userspictures.each do |picture| %><br>
-    <%= image_tag(picture.image.url(:medium)) %></h3>
-<% end %>
+  
+
+  <div class="col-md-4">
+    <div align="center">
+    <h3>Weekly savings:</h3><p>
+      <h4><strong>£<%= weekly_savings_target.round(2) %></strong></h4>
+       <div id="donutchart_w" style="width:500px; height:300px">
+    </div>
   </div>
-</div>
+ </div>
 
+  <div class="col-md-4">
+     <div align="center">
+        <h3>Monthly savings:</h3><p>
+        <h4><strong>£<%= monthly_savings_target.round(2) %></strong></h4>
+         <div id="donutchart_m" style="width:500px; height:300px">
+         </div>
+      </div>
+    </div>
+  <% end %>
+  
+    <% if monthly_budget == 0 %>
+    <h3> Looks like we don't have your details yet!</h3><p>
+    <a class="btn btn-default" href="/budgets/new" role="button">Update budget</a>
+    <% else %>
+    </div>
+    <% end %> 
 
-  <a class="btn btn-default" href="/updates/new" role="button">Update details</a><br>
+     <script type="text/javascript">
+       var actual_savingsVssavings_target = [ <%= actual_daily_savings %>, <%= daily_savings_target - actual_daily_savings.round(2) %>, <%= actual_weekly_savings %>, <%= weekly_savings_target - actual_weekly_savings.round(2) %>, <%= actual_monthly_savings %>, <%= monthly_savings_target - actual_monthly_savings.round(2) %> ];
+    </script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawCharts);
 
+function chartDailySavings() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Savings', '£'],
+          ['Saved',  actual_savingsVssavings_target[0]],
+          ['Savings target', actual_savingsVssavings_target[1]],
+        ]);
+        var options = {'title':'', pieHole: 0.3, colors: ['#75195a','#E2A9F3']};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_d'));
+        chart.draw(data, options);
+      }
+
+function chartWeeklySavings() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Savings', '£'],
+          ['Saved',  actual_savingsVssavings_target[2]],
+          ['Savings target', actual_savingsVssavings_target[3]],
+        ]);
+        var options = {'title':'', pieHole: 0.3, colors: ['#75195a','#E2A9F3']};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_w'));
+        chart.draw(data, options);
+      }
+
+     function chartMonthlySavings() {
+        var data = google.visualization.arrayToDataTable ([
+          ['Savings', '£'],
+          ['Saved',  actual_savingsVssavings_target[4]],
+          ['Savings target', actual_savingsVssavings_target[5]],
+        ]);
+        var options = {'title':'', pieHole: 0.3, colors: ['#75195a','#E2A9F3']};
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_m'));
+        chart.draw(data, options);
+      }
+      function drawCharts() {
+        chartDailySavings();
+        chartWeeklySavings();
+        chartMonthlySavings();
+      }
+    </script>
