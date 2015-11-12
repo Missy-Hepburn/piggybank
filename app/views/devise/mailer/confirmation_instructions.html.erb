@@ -1,5 +1,17 @@
-<p>Welcome <%= @email %>!</p>
+<p>Welcome to Piggy Bank!</p>
 
-<p>You can confirm your account email through the link below:</p>
+<p>We're here to help you make saving sexy.</p>
+
+<p>First, please confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+Then you can startyour journey by clicking the button below: 
+
+<p><a class="btn btn-default" role="button"><%= link_to 'log in', new_user_session_path %></a></p>
+
+<p>This is our beta version, which means we're very early phase and your feedback is key to us. Please don't hesitate to shoot us an <a href="mailto:pimpmypiggybank@gmail.com">email</a>.s</p>
+
+<p>Rock on,</p>
+
+<p>Your devoted Piggy Bank team</p>
