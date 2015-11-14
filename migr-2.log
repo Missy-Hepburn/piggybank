@@ -1,0 +1,18 @@
+Running `rake db:migrate` attached to terminal... up, run.7273
+
+^C
+== 20151111141036 AddConfirmableToDevise: migrating ===========================
+-- add_column(:users, :confirmation_token, :string)
+   -> 0.0033s
+-- add_column(:users, :confirmed_at, :datetime)
+   -> 0.0010s
+-- add_column(:users, :confirmation_sent_at, :datetime)
+   -> 0.0010s
+-- add_column(:users, :unconfirmed_email, :string)
+   -> 0.0011s
+-- add_index(:users, :confirmation_token, {:unique=>true})
+   -> 0.0091s
+-- execute("UPDATE users SET confirmed_at = NOW()")
+   -> 0.0023s
+== 20151111141036 AddConfirmableToDevise: migrated (0.0185s) ==================
+
