@@ -1,4 +1,4 @@
-<p>Welcome to Piggy Bank</p>
+<p><strong>Welcome to Piggy Bank</strong></p>
 
 <p>We're here to make saving sexy for you!</p>
 
@@ -6,11 +6,11 @@
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
 
-Then all you need to do is log in via the button below:
+Then all you need to do is log in via the link below:
 
-<p><a class="btn btn-default" role="button"><%= link_to 'Start your journey here', new_user_session_path %></a></p>
+<p><%= link_to 'Log in', new_user_session_path %></p>
 
-<p>This is our beta version, which means We're very early phase and your feedback is key to us. Please don't hesitate to shoot us an <a href="mailto:pimpmypiggybank@gmail.com">email</a>.</p>
+<p>This is our beta version, which means we're very early phase and your feedback is key to us. Please don't hesitate to shoot us an <a href="mailto:pimpmypiggybank@gmail.com">email</a>.</p>
 
 A big thank you in advance.
 
