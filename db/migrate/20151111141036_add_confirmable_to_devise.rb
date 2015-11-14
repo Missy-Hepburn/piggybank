@@ -7,7 +7,8 @@ class AddConfirmableToDevise < ActiveRecord::Migration
     
     add_index :users, :confirmation_token, unique: true
     
-    execute("UPDATE users SET confirmed_at = date('now')")
+    execute("UPDATE users SET confirmed_at = NOW()")
+    # execute("UPDATE users SET confirmed_at = date('now')")
   end
   
   def down
