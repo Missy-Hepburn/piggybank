@@ -28,3 +28,7 @@
 .btn-default:hover {
     background-color: #1ad159;
 }
+
+a:visited {
+    color: #FFFFFF;
+}

@@ -11,9 +11,9 @@
     <%end%>
 
    <% @usersbudgets.each do |budget| %>
+  <% weekly_savings_target = budget.monthly_savings / 4.33  %>
     <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
 
-  <% weekly_savings_target = budget.monthly_savings / 4.33  %>
   <% actual_weekly_savings += (budget.monthly_budget / 4.33) - transaction.price %>
 
 <%end%>
