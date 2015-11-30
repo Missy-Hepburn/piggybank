@@ -5,9 +5,9 @@
 
     <% @usersbudgets.each do |budget| %>
         <% daily_budget = (budget.monthly_budget - budget.monthly_savings) / 30.44  %>
-    <%end%>
     <% @userstransactions.where(created_at: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
         <% daily_expenses += transaction.price %>
+    <%end%>
     <%end%>
 
    <% @usersbudgets.each do |budget| %>
