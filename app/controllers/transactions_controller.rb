@@ -7,8 +7,6 @@ class TransactionsController < ApplicationController
     @userstransactions=Transaction.where(:user_id =>current_user.id)
     @icons = Icon.all
     @usersweeklyicons=Weeklyicon.where(:user_id =>current_user.id)
-   # Transaction.joins(:icons)
-   # Transaction.joins(:weeklyicons)
   end
 
   # GET /transactions/1

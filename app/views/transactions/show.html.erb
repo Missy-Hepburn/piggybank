@@ -16,7 +16,10 @@
   <strong>Price:</strong>
   <%= @transaction.price %>
 </p>
-
-<h5><a href="/expenses">Add more</a> / <%= link_to 'Check my expenses', transactions_path(current_user) %></h5>
+  
+<div class="actions">
+  <a class="btn btn-default" href="/expenses" role='btn btn-default'>Add more</a>
+  <a class="btn btn-default" href="/stats" role='btn btn-default'>Check my expenses</a>
+</div>
 
 </html>
