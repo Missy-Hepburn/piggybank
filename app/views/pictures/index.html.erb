@@ -3,16 +3,16 @@
 
 <% daily_savings_target = 0; weekly_savings_target = 0; monthly_savings_target = 0; actual_daily_savings = 0; actual_weekly_savings = 0; actual_monthly_savings = 0; monthly_budget = 0; monthly_savings = 0; %>
 
-    <% @usersbudgets.each do |budget| %>
-     <% daily_savings_target = budget.monthly_savings / 30.44  %>
+    <% @usersbudgets.each do |budget| %>    
     <% @userstransactions.where(created_at: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+    <% daily_savings_target = budget.monthly_savings / 30.44  %>
     <% actual_daily_savings += (budget.monthly_budget / 30.44) - transaction.price %>
     <%end%>
     <%end%>
 
    <% @usersbudgets.each do |budget| %>
-    <% weekly_savings_target = budget.monthly_savings / 4.33  %>
     <% @userstransactions.where(created_at: (Time.now.midnight - 7.day)..(Time.now.midnight + 1.day)).find_each do |transaction| %>
+    <% weekly_savings_target = budget.monthly_savings / 4.33  %>
     <% actual_weekly_savings += (budget.monthly_budget / 4.33) - transaction.price %>
 <%end%>
 <%end%>
